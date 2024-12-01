@@ -2,10 +2,10 @@ import { readFileSync } from "fs";
 
 const file = readFileSync("./src/day-01/input.txt", "utf-8");
 
-function partOne(input: string): void {
-    const leftList = input.split("\n").map((s) => Number(s.split("   ")[0]));
-    const rightList = input.split("\n").map((s) => Number(s.split("   ")[1]));
+const leftList = file.split("\n").map((s) => Number(s.split("   ")[0]));
+const rightList = file.split("\n").map((s) => Number(s.split("   ")[1]));
 
+function partOne(): void {
     leftList.sort((a, b) => a - b);
     rightList.sort((a, b) => a - b);
 
@@ -16,10 +16,7 @@ function partOne(input: string): void {
     console.log(totalDistance);
 }
 
-function partTwo(input: string): void {
-    const leftList = input.split("\n").map((s) => Number(s.split("   ")[0]));
-    const rightList = input.split("\n").map((s) => Number(s.split("   ")[1]));
-
+function partTwo(): void {
     const similarityScores = leftList.map((a) => {
         const foundMatches = rightList.filter((b) => b === a).length;
 
@@ -31,6 +28,6 @@ function partTwo(input: string): void {
     console.log(totalSimilarity);
 }
 
-partOne(file);
-partTwo(file);
+partOne();
+partTwo();
 
